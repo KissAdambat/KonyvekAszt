@@ -1,0 +1,47 @@
+﻿<Window x:Class="KönyvekAszt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KönyvekAszt"
+        mc:Ignorable="d"
+        Title="Könyvek" Height="630" Width="1100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,15,0,0">
+            <Button x:Name="btnBetoltes" Content="Könyvek betöltése" Height="38" Margin="0,0,0,28"
+                    Click="btnBetoltes_Click"/>
+            <Button x:Name="btnDarab" Content="Hány könyv van?" Height="38" Margin="0,0,0,28"
+                    Click="btnDarab_Click"/>
+            <Button x:Name="btnLeghosszabb" Content="Melyik a leghosszabb könyv?" Height="38" Margin="0,0,0,28"
+                    Click="btnLeghosszabb_Click"/>
+            <Button x:Name="btnAtlag" Content="Átlagos oldalszám" Height="38" Margin="0,0,0,28"
+                    Click="btnAtlag_Click"/>
+            <Button x:Name="btnElerheto" Content="Csak elérhető könyvek" Height="38" Margin="0,0,0,28"
+                    Click="btnElerheto_Click"/>
+            <Button x:Name="btnCimek" Content="Csak címek listája" Height="38" Margin="0,0,0,28"
+                    Click="btnCimek_Click"/>
+            <Button x:Name="btnRendezes" Content="Rendezés szerző szerint" Height="38" Margin="0,0,0,28"
+                    Click="btnRendezes_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgKonyvek" Grid.Column="2" Margin="14,0,0,0"
+                  AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  GridLinesVisibility="All"
+                  HorizontalGridLinesBrush="Black" VerticalGridLinesBrush="Black">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cim" Binding="{Binding Cim}" Width="*"/>
+                <DataGridTextColumn Header="Szerzo" Binding="{Binding Szerzo}" Width="*"/>
+                <DataGridTextColumn Header="Oldalszam" Binding="{Binding Oldalszam}" Width="*"/>
+                <DataGridTextColumn Header="Mufaj" Binding="{Binding Mufaj}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Elerheto" Binding="{Binding Elerheto}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
